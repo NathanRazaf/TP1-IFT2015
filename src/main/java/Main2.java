@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Main {
+public class Main2 {
     public static void main(String[] args) {
 
         ArrayList<GridAndWords> wholeFile = readFile(args[0]);
@@ -16,16 +16,12 @@ public class Main {
         for (GridAndWords gridAndWords : wholeFile) {
             System.out.println("Query "+i+":");
             i++;
-            Arrays.sort(gridAndWords.getWords());
-            new GridTraversal(gridAndWords.getChars()).findWords(gridAndWords.getWords());
+            new TrieGridTraversal(gridAndWords.getChars(), gridAndWords.getWords()).findWords();
         }
-
-
-
-            long endTime = System.nanoTime();
-            long timeElapsed = endTime - startTime;
-        System.out.println("Standard execution time in nanoseconds: " + timeElapsed);
-        System.out.println("Standard execution time in milliseconds: " + timeElapsed / 1000000);
+        long endTime = System.nanoTime();
+        long timeElapsed = endTime - startTime;
+        System.out.println("Trie execution time in nanoseconds: " + timeElapsed);
+        System.out.println("Trie execution time in milliseconds: " + timeElapsed / 1000000);
     }
 
     public static ArrayList<GridAndWords> readFile(String fileName) {

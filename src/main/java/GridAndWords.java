@@ -1,8 +1,8 @@
 import java.util.Arrays;
 
 public class GridAndWords {
-    private char[][] chars;
-    private String[] words;
+    private final char[][] chars;
+    private final String[] words;
 
     public GridAndWords(char[][] chars, String[] words) {
         this.chars = chars;
@@ -25,11 +25,4 @@ public class GridAndWords {
                 '}';
     }
 
-    public void setChars(char[][] chars) {
-        this.chars = chars;
-    }
-
-    public void setWords(String[] words) {
-        this.words = words;
-    }
 }
